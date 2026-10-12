@@ -2,6 +2,9 @@
 
 English version: [README.en.md](README.en.md)
 
+Código-fonte: [github.com/dantas42/Tom-s-Storage-Category-Filters](https://github.com/dantas42/Tom-s-Storage-Category-Filters/)
+Autor: dantas42
+
 Addon **client side** para o [Tom's Simple Storage Mod](https://www.curseforge.com/minecraft/mc-mods/toms-storage) que adiciona botões de categoria ao **Terminal de Armazenamento** e ao **Terminal de Crafting**. Com um clique você filtra os itens guardados por tipo, sem precisar digitar nada na barra de pesquisa.
 
 ## Categorias
@@ -71,6 +74,7 @@ O addon é **somente client side**: não precisa estar instalado no servidor.
 
 ## Créditos
 
+- Addon por dantas42.
 - Tom's Simple Storage Mod por tom5454.
 - Apotheosis por Shadows_of_Fire.
 

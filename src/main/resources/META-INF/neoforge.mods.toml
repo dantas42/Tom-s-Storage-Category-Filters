@@ -1,6 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
 license = "${mod_license}"
+issueTrackerURL = "https://github.com/dantas42/Tom-s-Storage-Category-Filters/issues"
 
 # Mixin configuration, registered the same way Apotheosis 8.9.0 does it.
 [[mixins]]
@@ -15,6 +16,7 @@ description = '''${mod_description}'''
 # Client-only addon: the server does not need it and must not require it.
 displayTest = "IGNORE_SERVER_VERSION"
 logoFile = "logo.png"
+displayURL = "https://github.com/dantas42/Tom-s-Storage-Category-Filters/"
 
 [[dependencies.${mod_id}]]
 modId = "neoforge"

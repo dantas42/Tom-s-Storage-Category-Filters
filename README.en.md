@@ -4,6 +4,9 @@ A **client side** addon for [Tom's Simple Storage Mod](https://www.curseforge.co
 
 Portuguese version: [README.md](README.md)
 
+Source code: [github.com/dantas42/Tom-s-Storage-Category-Filters](https://github.com/dantas42/Tom-s-Storage-Category-Filters/)
+Author: dantas42
+
 ## Categories
 
 The buttons sit on the right side of the terminal, in a column. Hover over a button to see its name and description.
@@ -71,6 +74,7 @@ The addon is **client side only**: it doesn't need to be installed on the server
 
 ## Credits
 
+- Addon by dantas42.
 - Tom's Simple Storage Mod by tom5454.
 - Apotheosis by Shadows_of_Fire.
 
