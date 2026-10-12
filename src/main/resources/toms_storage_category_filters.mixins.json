@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.tiago.tomsstoragecategories.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AbstractStorageTerminalScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

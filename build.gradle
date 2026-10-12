@@ -1,0 +1,86 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '7.0.168'
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+    mavenCentral()
+}
+
+base {
+    archivesName = mod_id
+}
+
+// NeoForge 1.21.1 runs on Java 21.
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+    }
+
+    client {
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+
+    // Tom's Simple Storage is required at compile time only (the addon is client side and
+    // gets Tom's Storage at runtime from the modpack).
+    compileOnly "maven.modrinth:toms-storage:${toms_storage_version}"
+
+    // Apotheosis is optional. Its classes are only referenced from classes that are loaded
+    // when the mod is present (see ApotheosisSupport).
+    compileOnly "maven.modrinth:apotheosis:${apotheosis_version}"
+    compileOnly "maven.modrinth:placebo:${placebo_version}"
+    compileOnly "maven.modrinth:apothic-attributes:${apothic_attributes_version}"
+    compileOnly "maven.modrinth:apothic-enchanting:${apothic_enchanting_version}"
+    compileOnly "maven.modrinth:curios:${curios_version}"
+
+    compileOnly "org.spongepowered:mixin:${mixin_version}"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+// Expand the mod metadata template (META-INF/neoforge.mods.toml) with gradle.properties values.
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version_range: minecraft_version_range,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
