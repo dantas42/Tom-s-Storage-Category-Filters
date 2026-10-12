@@ -14,6 +14,7 @@ authors = "${mod_authors}"
 description = '''${mod_description}'''
 # Client-only addon: the server does not need it and must not require it.
 displayTest = "IGNORE_SERVER_VERSION"
+logoFile = "logo.png"
 
 [[dependencies.${mod_id}]]
 modId = "neoforge"
